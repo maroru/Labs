@@ -4,7 +4,7 @@
 
 int maxArray(int anArray[], int first, int last)
 {
-    if ( first+1 == last )
+    if ( last-first == 1 )
         return anArray[first];
     int mid { first + (last-first) / 2 };
     return std::max(maxArray(anArray,first,mid),maxArray(anArray,mid,last));
