@@ -1,1 +1,18 @@
-demo*
+# Vim files
+*~
+*.swp
+
+# C/C++ projs
+*.o
+*.a
+*.d
+
+# MacOS
+.DS_Store
+
+# PC
+*.exe
+
+# Other
+demo
+testapp
