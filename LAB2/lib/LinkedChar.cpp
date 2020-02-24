@@ -2,11 +2,7 @@
 #include <iostream>
 #include "LinkedChar.h"
 
-LinkedChar::LinkedChar()
-{
-    headPtr = nullptr;
-    itemCount = 0;
-}
+LinkedChar::LinkedChar() : headPtr(nullptr), itemCount(0){}
 
 LinkedChar::LinkedChar(std::string s)
 {
@@ -18,11 +14,11 @@ LinkedChar::LinkedChar(std::string s)
 
 void LinkedChar::display()
 {
-    Node * curr = headPtr;
+    Node * curPtr = headPtr;
     std::cout << "LinkedChar: '";
-    while (curr != nullptr) {
-        std::cout << curr->getItem();
-        curr = curr->getNext();
+    while (curPtr != nullptr) {
+        std::cout << curPtr->getItem();
+        curPtr = curPtr->getNext();
     }
     std::cout << "'";
 }
@@ -34,10 +30,10 @@ void LinkedChar::add(const char& newEntry)
         headPtr = newNode;
     else
     {
-        Node* curr = headPtr;
-        while (curr->getNext() != nullptr)
-            curr = curr->getNext();
-        curr->setNext(newNode);
+        Node* curPtr = headPtr;
+        while (curPtr->getNext() != nullptr)
+            curPtr = curPtr->getNext();
+        curPtr->setNext(newNode);
     }
     itemCount++;
 }
@@ -49,26 +45,26 @@ int LinkedChar::length() const
 
 int LinkedChar::index(char ch) const
 {
-    int lcindex = 0;
-    Node * curr = headPtr;
-    while (curr != nullptr && curr->getItem() != ch)
+    int lcIndex = 0;
+    Node * curPtr = headPtr;
+    while (curPtr != nullptr && curPtr->getItem() != ch)
     {
-        ++lcindex;
-        curr = curr->getNext();
+        ++lcIndex;
+        curPtr = curPtr->getNext();
     }
-    if (curr == nullptr)
+    if (curPtr == nullptr)
         return -1;
     else
-        return lcindex;
+        return lcIndex;
 }
 
 void LinkedChar::append(const LinkedChar & lc)
 {
-    Node* curr = lc.headPtr;
-    while (curr != nullptr)
+    Node* curPtr = lc.headPtr;
+    while (curPtr != nullptr)
     {
-        add(curr->getItem());
-        curr = curr->getNext();
+        add(curPtr->getItem());
+        curPtr = curPtr->getNext();
     }
 }
 
