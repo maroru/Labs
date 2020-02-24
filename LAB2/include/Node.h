@@ -11,7 +11,7 @@ class Node {
         Node* getNext();
         void setNext(Node* anode);
 };
-
+/*
 char Node::getItem()
 {
     return item;
@@ -31,3 +31,4 @@ void Node::setNext(Node* anode)
 {
     next = anode;
 }
+*/
