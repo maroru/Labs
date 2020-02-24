@@ -6,13 +6,13 @@
 class LinkedChar
 {
     private:
-        Node * head;
+        Node * headPtr;
         int itemCount;
     public:
         LinkedChar();
         LinkedChar(std::string s);
         void display();
-        void add(const char item);
+        void add(const char& newEntry);
         int length() const;
         void append(const LinkedChar& lc);
         bool submatch(const LinkedChar& lc) const;

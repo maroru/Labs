@@ -4,13 +4,13 @@
 
 LinkedChar::LinkedChar()
 {
-    head = nullptr;
+    headPtr = nullptr;
     itemCount = 0;
 }
 
 LinkedChar::LinkedChar(std::string s)
 {
-    head = nullptr;
+    headPtr = nullptr;
     itemCount = 0;
     for (int i = 0; i < s.length(); i++)
         add(s[i]);
@@ -18,7 +18,7 @@ LinkedChar::LinkedChar(std::string s)
 
 void LinkedChar::display()
 {
-    Node * curr = head;
+    Node * curr = headPtr;
     std::cout << "LinkedChar: '";
     while (curr != nullptr) {
         std::cout << curr->getItem();
@@ -27,14 +27,14 @@ void LinkedChar::display()
     std::cout << "'";
 }
 
-void LinkedChar::add(const char item)
+void LinkedChar::add(const char& newEntry)
 {
-    Node * newNode = new Node(item);
-    if (head == nullptr)
-        head = newNode;
+    Node * newNode = new Node(newEntry);
+    if (headPtr == nullptr)
+        headPtr = newNode;
     else
     {
-        Node* curr = head;
+        Node* curr = headPtr;
         while (curr->getNext() != nullptr)
             curr = curr->getNext();
         curr->setNext(newNode);
@@ -50,7 +50,7 @@ int LinkedChar::length() const
 int LinkedChar::index(char ch) const
 {
     int lcindex = 0;
-    Node * curr = head;
+    Node * curr = headPtr;
     while (curr != nullptr && curr->getItem() != ch)
     {
         ++lcindex;
@@ -64,7 +64,7 @@ int LinkedChar::index(char ch) const
 
 void LinkedChar::append(const LinkedChar & lc)
 {
-    Node* curr = lc.head;
+    Node* curr = lc.headPtr;
     while (curr != nullptr)
     {
         add(curr->getItem());
@@ -74,8 +74,8 @@ void LinkedChar::append(const LinkedChar & lc)
 
 bool LinkedChar::submatch(const LinkedChar & lc) const
 {
-    Node* lcPtr = head;
-    Node* subPtr = lc.head;
+    Node* lcPtr = headPtr;
+    Node* subPtr = lc.headPtr;
     while (lcPtr != nullptr)
     {
         if (lcPtr->getItem() == subPtr->getItem() && subPtr->getNext() == nullptr)
@@ -85,11 +85,11 @@ bool LinkedChar::submatch(const LinkedChar & lc) const
             lcPtr = lcPtr->getNext();
             subPtr = subPtr->getNext();
         }
-        else if (lc.head->getItem() == lcPtr->getItem())
-            subPtr = lc.head;
+        else if (lc.headPtr->getItem() == lcPtr->getItem())
+            subPtr = lc.headPtr;
         else
         {
-            subPtr = lc.head;
+            subPtr = lc.headPtr;
             lcPtr = lcPtr->getNext();
         }
     }
@@ -98,10 +98,15 @@ bool LinkedChar::submatch(const LinkedChar & lc) const
 
 LinkedChar::~LinkedChar()
 {
-    while (head != nullptr)
+    Node* nodeToDeletePtr = headPtr;
+    while (headPtr != nullptr)
     {
-        Node *oldPtr = head;
-        head = head->getNext();
-        delete oldPtr;
+        headPtr = headPtr->getNext();
+
+        nodeToDeletePtr->setNext(nullptr);
+        delete nodeToDeletePtr;
+
+        nodeToDeletePtr = headPtr;
     }
+    itemCount = 0;
 }
