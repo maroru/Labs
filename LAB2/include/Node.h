@@ -6,7 +6,9 @@ class Node {
         char item;
         Node * next;
     public:
-        Node(char anItem) : item(anItem), next(nullptr) {}
+        Node();
+        Node(const char& anItem);
+        Node(const char& anItem, Node* nextNodePtr);
         char getItem() const;
         void setItem(const char& anItem);
         Node* getNext() const;
