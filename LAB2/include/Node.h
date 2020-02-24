@@ -1,21 +1,33 @@
-#ifndef NODE_
-#define NODE_
+#pragma once
 
-template<class ItemType>
-class Node
+class Node {
+    private:
+        char item;
+        Node * next;
+    public:
+        Node(char aitem) : item(aitem), next(nullptr) {}
+        char getItem();
+        void setItem(char aitem);
+        Node* getNext();
+        void setNext(Node* anode);
+};
+
+char Node::getItem()
 {
-private:
-   ItemType        item; // A data item
-   Node<ItemType>* next; // Pointer to next node
-   
-public:
-   Node();
-   Node(const ItemType& anItem);
-   Node(const ItemType& anItem, Node<ItemType>* nextNodePtr);
-   void setItem(const ItemType& anItem);
-   void setNext(Node<ItemType>* nextNodePtr);
-   ItemType getItem() const ;
-   Node<ItemType>* getNext() const ;
-}; // end Node
+    return item;
+}
 
-#endif
+void Node::setItem(char aitem)
+{
+    item = aitem;
+}
+
+Node * Node::getNext()
+{
+    return next;
+}
+
+void Node::setNext(Node* anode)
+{
+    next = anode;
+}
