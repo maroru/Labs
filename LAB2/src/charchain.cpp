@@ -38,40 +38,53 @@ void userOptions()
 		std::cout << "\n\nEnter selection [1-5]: ";
 		std::cin >> choice;
 		std::cout << "\n";
-		if (choice == 1)
-			std::cout << "Length of LinkedChar: " << lcCurrent.length() << "\n\n";
-		else if (choice == 2)
-		{
-			char charSearch;
-			std::cout << "Enter char to search for: ";
-			std::cin >> charSearch;
-			std::cout << "\nIndex of char in LinkedChar (starting from 0): " 
-                << lcCurrent.index(charSearch) << "\n\n";
-		}
-		else if (choice == 3)
-		{
-			std::string appendString;
-			std::cout << "Enter AppendLinkedChar and append to LinkedChar: ";
-			std::cin.ignore();
-			std::getline(std::cin, appendString);
-			LinkedChar lcAppend(appendString);
-			lcCurrent.append(lcAppend);
-			std::cout << "\n";
-			lcCurrent.display();
-			std::cout << "\n\n";
-		}
-		else if (choice == 4)
-		{
-			std::string subString;
-			std::cout << "Enter SubLinkedChar and search for match in LinkedChar: ";
-			std::cin.ignore();
-			std::getline(std::cin, subString);
-			LinkedChar lcSub(subString);
-			std::cout << "\nSubLinkedChar found in LinkedChar: ";
-			if (lcCurrent.submatch(lcSub))
-				std::cout << "TRUE\n\n";
-			else
-				std::cout << "FALSE\n\n";
-		}
+        switch(choice) 
+        {
+            case 1:
+			    std::cout << "Length of LinkedChar: " << lcCurrent.length() << "\n\n";
+                break;
+            case 2:
+                {
+                    char charSearch;
+                    std::cout << "Enter char to search for: ";
+                    std::cin >> charSearch;
+                    std::cout << "\nIndex of char in LinkedChar (starting from 0): " 
+                        << lcCurrent.index(charSearch) << "\n\n";
+                    break;
+                }
+            case 3:
+                {
+                    std::string appendString;
+                    std::cout << "Enter AppendLinkedChar and append to LinkedChar: ";
+                    std::cin.ignore();
+                    std::getline(std::cin, appendString);
+                    LinkedChar lcAppend(appendString);
+                    lcCurrent.append(lcAppend);
+                    std::cout << "\n";
+                    lcCurrent.display();
+                    std::cout << "\n\n";
+                    break;
+                }
+            case 4:
+                {
+                    std::string subString;
+                    std::cout << "Enter SubLinkedChar and search for match in LinkedChar: ";
+                    std::cin.ignore();
+                    std::getline(std::cin, subString);
+                    LinkedChar lcSub(subString);
+                    std::cout << "\nSubLinkedChar found in LinkedChar: ";
+                    if (lcCurrent.submatch(lcSub))
+                        std::cout << "TRUE\n\n";
+                    else
+                        std::cout << "FALSE\n\n";
+                    break;
+                }
+            case 5:
+                std::cout << "Exiting program\n";
+                break;
+            default:
+                std::cout << "Invalid choice - Try again\n\n";
+                choice = 0;
+        }
 	}
 }
