@@ -1,21 +1,22 @@
+// Matthew Ruiz
 #include "Node.h"
 
-char Node::getItem()
+char Node::getItem() const
 {
     return item;
 }
 
-void Node::setItem(char aitem)
+void Node::setItem(const char& anItem)
 {
-    item = aitem;
+    item = anItem;
 }
 
-Node * Node::getNext()
+Node * Node::getNext() const
 {
     return next;
 }
 
-void Node::setNext(Node* anode)
+void Node::setNext(Node* nextNodePtr)
 {
-    next = anode;
+    next = nextNodePtr;
 }

@@ -1,3 +1,4 @@
+// Mattheew Ruiz
 #pragma once
 
 class Node {
@@ -5,9 +6,9 @@ class Node {
         char item;
         Node * next;
     public:
-        Node(char aitem) : item(aitem), next(nullptr) {}
-        char getItem();
-        void setItem(char aitem);
-        Node* getNext();
-        void setNext(Node* anode);
+        Node(char anItem) : item(anItem), next(nullptr) {}
+        char getItem() const;
+        void setItem(const char& anItem);
+        Node* getNext() const;
+        void setNext(Node* nextNodePtr);
 };
