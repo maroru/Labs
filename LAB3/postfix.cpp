@@ -1,33 +1,55 @@
 // Matthew Ruiz
 #include <iostream>
+#include <string>
+#include <stack>
 
-int postfixCalculator(int stringArr[], int max)
+int postfixCalculator(std::string expression)
 {
-    for (int i = 0; i < max ; i++)
+    int result{0};
+    std::stack<int> numStack;
+
+    for (int i{0} ; i < expression.length() ; i++)
     {
-        if (stringArr[i] != ( '*' || '/' || '+' || '-' ))
-            push(stringArr[i]);
+        if (isdigit(expression[i]))
+            numStack.push(expression[i] - '0');
         else // ch is an operator named op
         {
             // Evaluate and push the result
-            operand2 = top;
-            pop;
+            int operand2 { numStack.top() }; 
+            numStack.pop();
 
-            operand1 = top;
-            pop;
+            int operand1 { numStack.top() };
+            numStack.pop();
 
-            result = operand1 op operand2;
+            switch (expression[i])
+            {
+                case '+':
+                    result = operand1 + operand2;
+                    break;
+                case '-':
+                    result = operand1 - operand2;
+                    break;
+                case '*':
+                    result = operand1 * operand2;
+                    break;
+                case '/':
+                    result = operand1 / operand2;
+                    break;
+                default:
+                    return 0;
+            }
+            numStack.push(result);
         }
     }
-    return result;
+    return numStack.top();
 }
 
 int main()
 {
-    std::string newString[];
-    std::cout << "Enter: ";
-    std::getline(std::cin, newString[]);
-    std::cout << '\n';
-    std::cout << "Result: " << postfixCalculator(newString[], max);
+    std::string expression;
+    std::cout << "Enter a postfix expression: ";
+    std::getline(std::cin, expression);
+    int result { postfixCalculator(expression) };
+    std::cout << "Result: " << result << '\n';
     return 0;
 }
