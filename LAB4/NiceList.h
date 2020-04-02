@@ -20,4 +20,4 @@ public:
     std::string giftsToString(std::string split = ",");
 };
 
-//#include "NiceList.cpp"
+#include "NiceList.cpp"
