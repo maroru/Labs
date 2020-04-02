@@ -1,14 +1,70 @@
-# Lab 4 : Santa's Gift List
+# Lab 4
+Do the following exercise from the book. Follow the instructions for all assignments (one link up) and any specific additional instructions for each problem. 
 
-Ch. 8 Programming Problems 2, pg. 264
+Ch. 8, Programming Problems 2, pg. 264
 
-2. Santa Claus allegedly keeps lists of those who are naughty and those who are nice. On the naughty list are the names of those who will get coal in their stockings. On the nice list are those who will receive gifts. Each object in this list contains a name (a string) and a list of that person's gifts (an instance of an ADT list). Design an ADT for the objects in the nice list. Specify each ADT operation by stating its purpose, describing its parameters, and writing preconditions, postconditions, and a pseudocode version of its header. Then write a template interface for the ADT that includes javadoc-style comments.
+Name the program giftlist.cpp. Make sure the following requirements are met. 
 
-Name the progam giftlist.cpp. Make sure the following requirements are met.
 * Program must compile and run.
-* All inputs are strings (may have spaces).
+* All inputs are strings.
 * Only do the nice list, not the naughty list.
 * User will enter names until empty string denoting no more names.
 * Each name will be followed by one or more gifts.
 * After names entered display contents of the name list and each gift list.
-* A single string list is not an adequate data structure. Nor are parallel arrays, instead create an object oriented design.
+
+Remember to upload all files before submitting.
+
+**giftlist.cpp**
+
+## Example run of program
+> name for nice list: greg
+
+> add gifts for greg
+
+> gift: legos
+
+> gift: cookie
+
+> gift:
+
+> name for nice list: bob
+
+> add gifts for bob
+
+> gift: monopoly
+
+> gift: candy cane
+
+> gift:
+
+> name for nice list: alice
+
+> add gifts for alice
+
+> gift: dress
+
+> gift:
+
+> name for nice list: tim
+
+> add gifts for tim
+
+> gift: superman comic
+
+> gift: car
+
+> gift: pony
+
+> gift:
+
+> name for nice list:
+
+> The list contains
+
+> greg  legos cookie
+
+> bob  monopoly candy cane
+
+> alice  dress
+
+> tim  superman comic car pony
