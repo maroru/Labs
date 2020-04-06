@@ -6,33 +6,33 @@
 int main()
 {
     std::list<NiceList<std::string>> lists;
-    std::string listName, giftName;
+    std::string name, gift;
 
     std::cout << "name for nice list: ";
-    std::getline(std::cin, listName);
+    std::getline(std::cin, name);
 
-    while (!listName.empty())
+    while (!name.empty())
     {
         NiceList<std::string> niceList;
-        niceList.setName(listName);
+        niceList.setName(name);
 
-        std::cout << "add gifts for " << listName << std::endl;
+        std::cout << "add gifts for " << name << '\n';
 
         do {
             std::cout << "gift: ";
-            std::getline(std::cin, giftName);
-            niceList.addGift(giftName);
-        } while (!giftName.empty());
+            std::getline(std::cin, gift);
+            niceList.addGift(gift);
+        } while (!gift.empty());
 
         lists.push_back(niceList);
 
         std::cout << "name for nice list: ";
-        std::getline(std::cin, listName);
+        std::getline(std::cin, name);
     }
 
-    std::cout << "The list contains" << std::endl;
+    std::cout << "The list contains" << '\n';
     for (auto aList: lists)
-        std::cout << aList.getName() << "  " << aList.giftsToString(" ") << std::endl;
+        std::cout << aList.getName() << " : " << aList.giftsToString(" ") << '\n';
 
     return 0;
 }
