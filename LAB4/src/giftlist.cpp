@@ -5,7 +5,7 @@
 
 int main()
 {
-    std::list<NiceList<std::string>> lists;
+    std::list<NiceList<std::string> > lists;
     std::string name, gift;
 
     std::cout << "name for nice list: ";

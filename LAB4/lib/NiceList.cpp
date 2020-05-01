@@ -1,24 +1,4 @@
-// Matthew Ruiz
-
-#pragma once
-
-#include <list>
-#include "ListInterface.h"
-
-template<class ItemType>
-class NiceList : public ListInterface<ItemType>
-{
-private:
-    std::string name;
-    std::list<ItemType> gifts;
-public:
-    void setName(std::string aName);
-
-    void addGift(ItemType aGift);
-
-    std::string getName() const;
-    std::string giftsToString(std::string split = ",");
-};
+#include "NiceList.h"
 
 template<class ItemType>
 void NiceList<ItemType>::setName(std::string aName)
@@ -52,3 +32,5 @@ std::string NiceList<ItemType>::giftsToString(std::string split)
 
     return result;
 }
+
+template class NiceList<std::string>;
