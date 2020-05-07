@@ -19,6 +19,7 @@ int main()
     std::shared_ptr<SortedListInterface<int>> listPtr = std::make_shared<LinkedSortedList<int>>();
     int number{0};
     int position;
+    int firstNum;
 
     for (int i = 0; i < LIST_SIZE; i++)
     {
@@ -32,18 +33,26 @@ int main()
 	    std::cout << number;
         // insert 21 random numbers 1-100 on the sorted list
         listPtr->insertSorted(number);
+
+        if (i == 0)
+        {
+            firstNum = number;
+        }
     }
     std::cout << "\n\n";
 
     // display sorted list
     displayList(listPtr);
 
-    if (number > 0)
+    position = listPtr->getPosition(firstNum);
+    std::cout << "Removing number: " << listPtr->getEntry(position) << "\n\n";
+    listPtr->remove(position);
+    /*if (number > 0)
     {
         position = listPtr->getPosition(number);
         std::cout << "Removing number: " << listPtr->getEntry(position) << "\n\n";
         listPtr->remove(position);
-    }
+    }*/
 
     // display the sorted list with the first number inserted removed
     displayList(listPtr);
