@@ -463,8 +463,7 @@ void BinaryNodeTree<ItemType>::postorderTraverse(void visit(ItemType&)) const
 //////////////////////////////////////////////////////////////
 
 template<class ItemType>
-BinaryNodeTree<ItemType>& BinaryNodeTree<ItemType>::operator=(
-                                                              const BinaryNodeTree<ItemType>& rightHandSide)
+BinaryNodeTree<ItemType>& BinaryNodeTree<ItemType>::operator=(const BinaryNodeTree<ItemType>& rightHandSide)
 {
     if (!isEmpty())
         clear();
